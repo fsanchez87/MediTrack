@@ -137,7 +137,11 @@ export const columns: ColumnDef<User>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link to={`/users/${user.id}`}>Details</Link>
+              <Link to={`/users/${user.id}/overview`}>Details</Link>
+            </DropdownMenuItem>            <DropdownMenuItem>
+              <Link to={`/users/${user.id}/sensors-summary`}>Sensor Summary</Link>
+            </DropdownMenuItem>            <DropdownMenuItem>
+              <Link to={`/users/${user.id}/sensors-graphs`}>Sensor Graphs</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
