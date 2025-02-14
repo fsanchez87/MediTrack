@@ -61,7 +61,7 @@ export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sideb
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
+        {/* <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <h2 className="text-lg font-bold">
@@ -72,7 +72,7 @@ export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sideb
               </h2>
             </SidebarMenuButton>
           </SidebarMenuItem>
-        </SidebarMenu>
+        </SidebarMenu> */}
         <CompanySwitcher companies={data.companies} />
       </SidebarHeader>
       <SidebarContent>

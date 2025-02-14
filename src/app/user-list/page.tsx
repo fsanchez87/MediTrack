@@ -59,9 +59,7 @@ export default function UsersList() {
             <Plus className="mr-2 h-4 w-4" />Add Patients
           </Button>
         </div>
-        <div className="flex-grow overflow-auto rounded-md">
-            <DataTable columns={columns} data={users} />       
-         </div>
+        <DataTable columns={columns} data={users} />   
       </div>
     </SidebarInset>
   );

@@ -37,10 +37,10 @@ export function DataTable<TData, TValue>({ columns, data,}: DataTableProps<TData
   })
 
   return (
-    <div className="space-y-4">
-        <DataTableToolbar table={table} />
-    	<div className="rounded-md border">
-        <Table>
+    <>
+      <DataTableToolbar table={table} />
+    	<div className="flex-grow overflow-auto rounded-md border">
+        <Table className="w-full">
             <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
@@ -84,6 +84,7 @@ export function DataTable<TData, TValue>({ columns, data,}: DataTableProps<TData
         </Table>
       </div>
       <DataTablePagination table={table} />
-    </div>
+
+    </>
   )
 }
