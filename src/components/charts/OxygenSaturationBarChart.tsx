@@ -75,7 +75,7 @@ export function OxygenSaturationBarChart({ sensorsData }: OxygenSaturationBarCha
       <CardHeader>
         <CardTitle className="flex items-center">
           <Droplet className="mr-2" size={20} />
-          Oxygen Saturation (Bar Chart)
+          Oxygen Saturation 
         </CardTitle>
         <CardDescription>
           {displayedSensorsData.length > 0

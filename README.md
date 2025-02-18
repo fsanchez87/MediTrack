@@ -1,4 +1,4 @@
-# Prueba Técnica HealthSync
+# Prueba Técnica MediTrack
 
 ## Objetivo
 Evaluar la capacidad del candidato para desarrollar una aplicación web en **React** enfocada en el sector salud.  
