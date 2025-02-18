@@ -1,4 +1,4 @@
-"use client";
+
 
 import { ChevronsUpDown, Plus } from "lucide-react";
 import * as React from "react";
@@ -18,6 +18,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { ModeToggle } from "../../../components/mode-toggle";
 
 export default function CompanySwitcher({
   companies,
@@ -28,13 +29,13 @@ export default function CompanySwitcher({
     plan: string;
   }[];
 }) {
-  const { isMobile } = useSidebar();
+  const { isMobile, open } = useSidebar();
   const [activeCompany, setActiveCompany] = React.useState(companies[0]);
 
   return (
     <SidebarMenu>
-      <SidebarMenuItem>
-        <DropdownMenu>
+      <SidebarMenuItem className="flex items-center justify-between">
+        <DropdownMenu>          
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
@@ -81,6 +82,7 @@ export default function CompanySwitcher({
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        {open && <ModeToggle/>}
       </SidebarMenuItem>
     </SidebarMenu>
   );

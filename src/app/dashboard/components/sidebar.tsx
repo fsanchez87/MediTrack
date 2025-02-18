@@ -3,9 +3,6 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
 import {
@@ -14,8 +11,8 @@ import {
   Users,
   Settings,
 } from "lucide-react";
-import NavMain from "@/components/dashboard/nav-main";
-import NavUser from "@/components/dashboard/nav-user";
+import NavMain from "@/app/dashboard/components/nav-main";
+import NavUser from "@/app/dashboard/components/nav-user";
 import CompanySwitcher from "./company-switcher";
 
 const data = {
@@ -34,25 +31,21 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/dashboard",
+      url: "/dashboard/users",
       icon: LayoutDashboard,
-      isActive: true,
+      isActive: false,
     },   
     {
       title: "Patients",
       url: "/dashboard/users",
       icon: Users,
+      isActive: true,
     },
     {
       title: "Settings",
       url: "/dashboard/settings",
       icon: Settings,
-      items: [
-        {
-          title: "Profile",
-          url: "/dashboard/settings/profile",
-        },
-      ],
+      isActive: false,
     },
   ],
 };
@@ -61,20 +54,9 @@ export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sideb
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        {/* <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <h2 className="text-lg font-bold">
-                <span className="hidden group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:h-full group-data-[collapsible=icon]:w-full group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:justify-center">
-                  MT
-                </span>
-                <span className="group-data-[collapsible=icon]:hidden">MediTrack Dashboard</span>
-              </h2>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu> */}
         <CompanySwitcher companies={data.companies} />
       </SidebarHeader>
+
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>

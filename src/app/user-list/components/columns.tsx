@@ -132,17 +132,12 @@ export const columns: ColumnDef<User>[] = [
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(user.email)}
-            >
-              Copy Email
+            > Copy Email
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link to={`/users/${user.id}/overview`}>Details</Link>
-            </DropdownMenuItem>            <DropdownMenuItem>
-              <Link to={`/users/${user.id}/sensors-summary`}>Sensor Summary</Link>
-            </DropdownMenuItem>            <DropdownMenuItem>
-              <Link to={`/users/${user.id}/sensors-graphs`}>Sensor Graphs</Link>
-            </DropdownMenuItem>
+              <Link to={`${user.id}/overview`}>Details</Link>
+            </DropdownMenuItem>            
           </DropdownMenuContent>
         </DropdownMenu>
       )

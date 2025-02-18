@@ -1,5 +1,5 @@
 import { SidebarProvider } from "@/components/ui/sidebar"
-import { DashboardSidebar } from "@/components/dashboard/sidebar"
+import { DashboardSidebar } from "@/app/dashboard/components/sidebar"
 import { Outlet } from "react-router-dom"
 
 export default function Layout() {

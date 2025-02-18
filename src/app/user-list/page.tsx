@@ -10,31 +10,39 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-const URL_API: string = 'https://dummyjson.com/users'; 
+
+// TODO: Export to file config
+const URL_API: string = "https://dummyjson.com/users";
 
 export default function UsersList() {
-  const [users, setUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
 
+  // TODO: USE TanStackQuery
   useEffect(() => {
     fetch(URL_API)
-    .then(async res => await res.json())
-    .then(res => {
-      setUsers(res.users)
-      setIsLoading(false)
-    })
-    .catch(err => {
-      console.log(err)
-      setIsLoading(false) 
-      }
-    )
-  }, [])
+      .then(async (res) => await res.json())
+      .then((res) => {
+        setUsers(res.users);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setIsLoading(false);
+      });
+  }, []);
 
-  if (isLoading) return <p>Loading ...</p>
+  if (isLoading) return <p>Loading ...</p>;
+  if (error)
+    return (
+      <p className="text-red-600">
+        An error occurred while fetching the patients. Please try again later.
+      </p>
+    );
 
   return (
     <SidebarInset className="flex h-screen flex-col">
@@ -56,10 +64,11 @@ export default function UsersList() {
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold tracking-tight">Patients</h1>
           <Button>
-            <Plus className="mr-2 h-4 w-4" />Add Patients
+            <Plus className="mr-2 h-4 w-4" />
+            Add Patients
           </Button>
         </div>
-        <DataTable columns={columns} data={users} />   
+        <DataTable columns={columns} data={users} />
       </div>
     </SidebarInset>
   );
